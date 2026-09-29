@@ -1,17 +1,8 @@
 FROM jenkins/jenkins:lts-jdk17
 
-
 USER root
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
- docker.io git python3 python3-venv python3-pip curl ca-certificates \
+ docker.io docker-cli git python3 python3-venv python3-pip curl ca-certificates \
  && rm -rf /var/lib/apt/lists/*
 USER jenkins
-
-FROM python:3.12-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
-EXPOSE 5000
-CMD ["python", "app.py"]
