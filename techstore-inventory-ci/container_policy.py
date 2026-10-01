@@ -12,6 +12,6 @@ if re.search(r"(?mi)^FROM\s+[^\s]+:latest\s*$", text):
 if issues:
  print("CONTAINER POLICY: FAILED")
  for issue in issues:
- print(" -", issue)
+  print(" -", issue)
  sys.exit(1)
 print("CONTAINER POLICY: PASSED")
